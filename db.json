@@ -1,0 +1,12 @@
+{
+  "subreddits": [
+    {
+      "id": 1,
+      "name": "testsubreddit",
+      "description": "test subreddit description"
+    }
+  ],
+  "posts": [
+    { "id": 1, "title": "Test title", "content": "ejzakezaj", "subredditId": 1 }
+  ]
+}
