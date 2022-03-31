@@ -7,6 +7,17 @@
     }
   ],
   "posts": [
-    { "id": 1, "title": "Test title", "content": "ejzakezaj", "subredditId": 1 }
+    {
+      "id": 1,
+      "title": "Test title",
+      "content": "ejzakezaj",
+      "subredditId": 1
+    },
+    {
+      "id": 2,
+      "title": "Test title 2",
+      "content": "njzekhnkdzja",
+      "subredditId": 1
+    }
   ]
 }
