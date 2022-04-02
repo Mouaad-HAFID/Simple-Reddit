@@ -1,15 +1,6 @@
-<app-navbar></app-navbar>
-<div
-  class="container pt-24 bg-gray-300 dark:bg-zinc-900"
-  style="min-height: 100vh"
->
-  <div class="grid grid-cols-3 w-2/3 m-auto gap-4">
-    <div class="flex w-4/5 flex-col col-span-2 m-auto">
-      <app-post-container
-        *ngFor="let post of posts"
-        [post]="post"
-      ></app-post-container>
-    </div>
-    <app-dashboard-tile></app-dashboard-tile>
+<div class="grid grid-cols-3 w-2/3 m-auto gap-4">
+  <div class="flex w-4/5 flex-col col-span-2 mx-auto">
+    <app-post *ngFor="let post of posts" [post]="post"></app-post>
   </div>
+  <app-dashboard-tile></app-dashboard-tile>
 </div>
