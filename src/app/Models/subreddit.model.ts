@@ -1,5 +1,8 @@
+import { Post } from './post.model';
+
 export interface Subreddit {
-  id: number;
+  id?: number;
   name: string;
-  description: string;
+  description?: string;
+  posts?: Post[];
 }
