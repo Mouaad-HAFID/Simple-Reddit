@@ -1,23 +1,4 @@
 {
-  "subreddits": [
-    {
-      "id": 1,
-      "name": "testsubreddit",
-      "description": "test subreddit description"
-    }
-  ],
-  "posts": [
-    {
-      "id": 1,
-      "title": "Test title",
-      "content": "ejzakezaj",
-      "subredditId": 1
-    },
-    {
-      "id": 2,
-      "title": "Test title 2",
-      "content": "njzekhnkdzja",
-      "subredditId": 1
-    }
-  ]
+  "subreddits": [],
+  "posts": []
 }
