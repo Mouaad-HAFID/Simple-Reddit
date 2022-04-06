@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Subreddit } from 'src/app/Models/subreddit.model';
 import { SubredditsService } from 'src/app/services/subreddits.service';
@@ -16,7 +17,10 @@ export class CreateSubredditComponent implements OnInit, OnDestroy {
     description: new FormControl('', [Validators.required]),
   });
 
-  constructor(private subredditsService: SubredditsService) {}
+  constructor(
+    private subredditsService: SubredditsService,
+    private router: Router
+  ) {}
   ngOnDestroy(): void {
     this.subscription?.unsubscribe();
   }
@@ -33,6 +37,11 @@ export class CreateSubredditComponent implements OnInit, OnDestroy {
     console.log(subredditToAdd);
     this.subscription = this.subredditsService
       .createSubreddit(subredditToAdd)
-      .subscribe({ complete: () => this.subredditForm.reset() });
+      .subscribe({
+        complete: () => {
+          this.subredditForm.reset();
+          this.router.navigate(['/']);
+        },
+      });
   }
 }

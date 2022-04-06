@@ -1,5 +1,13 @@
 <div class="grid grid-cols-3 w-2/3 m-auto gap-4">
   <div class="flex w-4/5 flex-col col-span-2 mx-auto">
+    <div class="my-7">
+      <p class="text-4xl font-semibold dark:text-white">
+        r/{{ subreddit?.name }}
+      </p>
+      <p class="text-2xl dark:text-white">
+        {{ subreddit?.description }}
+      </p>
+    </div>
     <div *ngIf="posts === undefined || posts.length === 0">
       <p class="text-5xl font-semibold dark:text-white">
         Oops! There are no posts for us to show you :(

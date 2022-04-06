@@ -15,9 +15,10 @@ export class HomeContainerComponent implements OnInit {
   constructor(private _postsService: PostsService) {}
 
   ngOnInit(): void {
-    this.subscription = this._postsService
-      .getAllPosts()
-      .subscribe((res) => (this.posts = res));
+    this.subscription = this._postsService.getAllPosts().subscribe((res) => {
+      console.log(res);
+      this.posts = res;
+    });
   }
   ngOnDestroy() {
     this.subscription?.unsubscribe();

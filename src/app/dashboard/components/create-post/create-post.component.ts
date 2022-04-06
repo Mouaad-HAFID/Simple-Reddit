@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Subreddit } from 'src/app/Models/subreddit.model';
 import { PostsService } from 'src/app/services/posts.service';
@@ -23,7 +24,8 @@ export class CreatePostComponent implements OnInit, OnDestroy {
   });
   constructor(
     private subredditService: SubredditsService,
-    private postsService: PostsService
+    private postsService: PostsService,
+    private router: Router
   ) {}
   ngOnDestroy(): void {
     this.subscription?.unsubscribe();
@@ -44,11 +46,12 @@ export class CreatePostComponent implements OnInit, OnDestroy {
         .createPost({
           title: this.createPostForm.value.title,
           content: this.createPostForm.value.content,
-          subredditId: this.createPostForm.value.subredditId,
+          subredditId: parseInt(this.createPostForm.value.subredditId),
         })
         .subscribe({
           complete: () => {
             this.createPostForm.reset();
+            this.router.navigate(['']);
           },
         });
     }
