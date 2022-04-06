@@ -14,6 +14,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { PostDetailsComponent } from './components/post-details/post-details.component';
 import { SubredditComponent } from './components/subreddit/subreddit.component';
 import { SubredditContainerComponent } from './containers/subreddit-container/subreddit-container.component';
+import { SubredditListComponent } from './components/subreddit-list/subreddit-list.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { SubredditContainerComponent } from './containers/subreddit-container/su
     PostDetailsComponent,
     SubredditComponent,
     SubredditContainerComponent,
+    SubredditListComponent,
   ],
   imports: [CommonModule, AppRoutingModule, ReactiveFormsModule],
   providers: [PostsService, SubredditsService],

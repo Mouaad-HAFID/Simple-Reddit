@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Post } from 'src/app/Models/post.model';
+import { Subreddit } from 'src/app/Models/subreddit.model';
 import { PostsService } from 'src/app/services/posts.service';
 import { SubredditsService } from 'src/app/services/subreddits.service';
 
@@ -10,17 +11,25 @@ import { SubredditsService } from 'src/app/services/subreddits.service';
   styleUrls: ['./home-container.component.css'],
 })
 export class HomeContainerComponent implements OnInit {
-  subscription?: Subscription;
+  subscription1?: Subscription;
+  subscription2?: Subscription;
   posts?: Post[];
-  constructor(private _postsService: PostsService) {}
+  subreddits?: Subreddit[];
+  constructor(
+    private _postsService: PostsService,
+    private _subredditsService: SubredditsService
+  ) {}
 
   ngOnInit(): void {
-    this.subscription = this._postsService.getAllPosts().subscribe((res) => {
-      console.log(res);
+    this.subscription1 = this._postsService.getAllPosts().subscribe((res) => {
       this.posts = res;
     });
+    this.subscription2 = this._subredditsService
+      .getAllSubreddits()
+      .subscribe((res) => (this.subreddits = res));
   }
   ngOnDestroy() {
-    this.subscription?.unsubscribe();
+    this.subscription1?.unsubscribe();
+    this.subscription2?.unsubscribe();
   }
 }
